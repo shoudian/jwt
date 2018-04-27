@@ -12,7 +12,7 @@ JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们
 
 官网地址:[http://www.phalapi.net/](http://www.phalapi.net/ "PhalApi官网")
 
-项目GitHub地址:[https://github.com/twodayw/phalapi2-jwt.git](https://github.com/twodayw/phalapi2-jwt.git "项目Git地址")
+项目GitHub地址:[https://github.com/shoudian/jwt.git](https://github.com/shoudian/jwt.git "项目Git地址")
 
 
 ## 安装PhalApi2-JWT
@@ -22,7 +22,7 @@ JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们
 ```
 {
     "require": {
-        "phalapi/jwt": "dev-master"
+        "shoudian/jwt": "dev-master"
     }
 }
 ```
@@ -37,7 +37,7 @@ JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们
      * 扩展类库 - JWT扩展
      */
 	'jwt' => array(
-		'iss' => 'phalapi.net',
+		'iss' => '51sh.vip',
 		'key' => 'secret'
 	),
 
@@ -50,7 +50,7 @@ JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们
 ```
 
 //jwt扩展
-$di->jwt = new \Phalapi\JWT\Lite($di->config->get('app.jwt.key'));
+$di->jwt = new \Shoudian\JWT\Lite($di->config->get('app.jwt.key'));
 
 ```
 
@@ -59,8 +59,10 @@ $di->jwt = new \Phalapi\JWT\Lite($di->config->get('app.jwt.key'));
 ```
 // 生成JWT
 \PhalApi\DI()->jwt->encodeJwt($payload);
+
 // 从header中获取AUTHORIZATION验证
 \PhalApi\DI()->jwt->decodeJwt();
+
 // 传入JWT验证
 \PhalApi\DI()->jwt->decodeJwtByParam($token);
     
